@@ -1,0 +1,18 @@
+sudo: required
+
+env:
+  PKG_NAME=robot-framework-coe
+
+services:
+  - docker
+
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t robot-framework-coe:ci .
+  
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
