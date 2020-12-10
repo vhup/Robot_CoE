@@ -24,6 +24,7 @@ RUN apk --no-cache upgrade \
     JayDeBeApi \
     lxml\
     xlrd\
+    suds-py3\
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
