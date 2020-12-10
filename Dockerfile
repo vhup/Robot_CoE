@@ -22,6 +22,8 @@ RUN apk --no-cache upgrade \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
     PyYAML \
     JayDeBeApi \
+    lxml\
+    xlrd\
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
