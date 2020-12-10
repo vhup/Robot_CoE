@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-if [ $TRAVIS_TAG != "" ]
+if [ "$TRAVIS_TAG" != "" ]
 then 
     docker tag robot-framework-coe:ci christophettat/devops_coe_robot:"$TRAVIS_TAG"
     docker push christophettat/devops_coe_robot:"$TRAVIS_TAG"
