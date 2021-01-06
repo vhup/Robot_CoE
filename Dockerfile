@@ -27,6 +27,7 @@ RUN apk --no-cache upgrade \
     lxml\
     xlrd\
     suds-py3\
+    robotframework-requests
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
