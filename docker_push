@@ -7,4 +7,5 @@ then
 fi
     docker tag robot-framework-coe:ci christophettat/devops_coe_robot:latest
     docker tag christophettat/devops_coe_robot:latest christophettat/devops_coe_robot:"$TRAVIS_JOB_ID"
-    docker push christophettat/devops_coe_robot:latest christophettat/devops_coe_robot:"$TRAVIS_JOB_ID"
+    docker push christophettat/devops_coe_robot:latest 
+    docker push christophettat/devops_coe_robot:"$TRAVIS_JOB_ID"
