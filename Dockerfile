@@ -8,6 +8,7 @@ ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
 
 ENV EXCELLIB_VERSION 2.0.0
 ENV PDF2TEXTLIBRARY_VERSION 1.0.1
+ENV SELENIUM2LIBRARY_VERSION 3.0.0
 
 USER root
 
@@ -21,6 +22,7 @@ RUN apk --no-cache upgrade \
 && pip3 install \
     --no-cache-dir \
     robotframework-excellib==$EXCELLIB_VERSION \
+    robotframework-selenium2library==SELENIUM2LIBRARY_VERSION \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
     PyYAML \
     JayDeBeApi \
