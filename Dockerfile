@@ -22,8 +22,9 @@ RUN apk --no-cache upgrade \
 && pip3 install \
     --no-cache-dir \
     robotframework-excellib==$EXCELLIB_VERSION \
-    robotframework-selenium2library==SELENIUM2LIBRARY_VERSION \
+    robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
+    robotframework-archivelibrary \
     PyYAML \
     JayDeBeApi \
     lxml\
