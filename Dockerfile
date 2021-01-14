@@ -9,6 +9,8 @@ ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
 ENV EXCELLIB_VERSION 2.0.0
 ENV PDF2TEXTLIBRARY_VERSION 1.0.1
 ENV SELENIUM2LIBRARY_VERSION 3.0.0
+ENV REQUESTS_VERSION 2.25.1
+ENV REQUESTS_LIBRARY_VERSION 0.8.0
 
 USER root
 
@@ -30,7 +32,8 @@ RUN apk --no-cache upgrade \
     lxml\
     xlrd\
     suds-py3\
-    robotframework-requests\
+    requests==$REQUESTS_VERSION \
+    robotframework-requests==$REQUESTS_LIBRARY_VERSION \
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
