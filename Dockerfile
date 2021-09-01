@@ -11,6 +11,7 @@ ENV PDF2TEXTLIBRARY_VERSION 1.0.1
 ENV SELENIUM2LIBRARY_VERSION 3.0.0
 ENV REQUESTS_VERSION 2.25.1
 ENV REQUESTS_LIBRARY_VERSION 0.8.0
+ENV JIRA_VERSION 3.0.1
 
 USER root
 
@@ -27,13 +28,14 @@ RUN apk --no-cache upgrade \
     robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
     robotframework-archivelibrary \
+    robotframework-requests==$REQUESTS_LIBRARY_VERSION \
     PyYAML \
     JayDeBeApi \
     lxml\
     xlrd\
     suds-py3\
+    jira==$JIRA_VERSION \
     requests==$REQUESTS_VERSION \
-    robotframework-requests==$REQUESTS_LIBRARY_VERSION \
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
