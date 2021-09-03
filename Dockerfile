@@ -19,6 +19,7 @@ RUN apk --no-cache upgrade \
   && apk --no-cache --virtual .build-deps add \
     gcc \
     g++\
+    curl\
     libxml2-dev\
     libxslt-dev\
 # Install Robot Framework and Selenium Library
