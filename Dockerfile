@@ -1,6 +1,5 @@
 FROM ppodgorsek/robot-framework:3.7.0
 
-
 LABEL description Robot Framework in Docker.
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
