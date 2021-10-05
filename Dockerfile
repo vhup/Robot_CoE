@@ -1,4 +1,4 @@
-FROM ppodgorsek/robot-framework:3.7.0
+FROM ppodgorsek/robot-framework:latest 
 
 LABEL description Robot Framework in Docker.
 
