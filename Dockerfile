@@ -35,7 +35,8 @@ RUN apk --no-cache upgrade \
     JayDeBeApi \
     lxml\
     xlrd\
-    suds-py3\
+    suds-py3\ \
+    requests-pkcs12 \
     jira==$JIRA_VERSION \
     requests==$REQUESTS_VERSION \
 && apk del --no-cache --update-cache .build-deps
