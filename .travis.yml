@@ -8,7 +8,7 @@ services:
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t devops_coe_robot:ci .
+  - docker build --squash -t devops_coe_robot:ci .
   
 deploy:
   skip_cleanup: true
