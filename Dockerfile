@@ -24,7 +24,7 @@ RUN apk --no-cache upgrade \
     libxslt-dev\
 # Install Robot Framework and Selenium Library
 && pip3 install \
-    --no-cache-dir \
+    --verbose --no-cache-dir \
     robotframework-excellib==$EXCELLIB_VERSION \
     robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
