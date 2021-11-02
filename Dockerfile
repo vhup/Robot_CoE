@@ -12,7 +12,6 @@ ENV REQUESTS_VERSION 2.25.1
 ENV REQUESTS_LIBRARY_VERSION 0.8.0
 ENV JIRA_VERSION 3.0.1
 ENV PYPDF2_VERSION 1.26.0
-ENV KEEPASSLIBRARY_VERSION 0.3.0
 
 USER root
 
@@ -31,6 +30,7 @@ RUN apk --no-cache upgrade \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
     robotframework-archivelibrary \
     robotframework-requests==$REQUESTS_LIBRARY_VERSION \
+    robotframework-keepasslibrary \
     PyPDF2==$PYPDF2_VERSION \
     PyYAML \
     JayDeBeApi \
@@ -40,7 +40,6 @@ RUN apk --no-cache upgrade \
     requests-pkcs12 \
     jira==$JIRA_VERSION \
     requests==$REQUESTS_VERSION \
-    robotframework-keepasslibrary==$KEEPASSLIBRARY_VERSION \
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
