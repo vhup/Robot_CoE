@@ -30,6 +30,7 @@ RUN apk --no-cache upgrade \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
     robotframework-archivelibrary \
     robotframework-requests==$REQUESTS_LIBRARY_VERSION \
+    robotframework-keepasslibrary \
     PyPDF2==$PYPDF2_VERSION \
     PyYAML \
     JayDeBeApi \
