@@ -12,6 +12,8 @@ ENV REQUESTS_VERSION 2.25.1
 ENV REQUESTS_LIBRARY_VERSION 0.8.0
 ENV JIRA_VERSION 3.0.1
 ENV PYPDF2_VERSION 1.26.0
+ENV CONFLUENT_KAFKA_VERSION 1.7.0
+ENV ATLASSIAN_PYTHON_API_VERSION 3.14.1
 
 USER root
 
@@ -39,6 +41,8 @@ RUN apk --no-cache upgrade \
     requests-pkcs12 \
     jira==$JIRA_VERSION \
     requests==$REQUESTS_VERSION \
+    confluent-kafka==$CONFLUENT_KAFKA_VERSION \
+    atlassian-python-api==$ATLASSIAN_PYTHON_API_VERSION \
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
