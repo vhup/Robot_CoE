@@ -17,13 +17,16 @@ ENV ATLASSIAN_PYTHON_API_VERSION 3.14.1
 USER root
 
 RUN apk --no-cache upgrade \
-  && apk --no-cache --virtual .build-deps add \
+&& apk --no-cache --virtual .build-deps add \
     gcc \
     g++\
     curl\
     libxml2-dev\
     libxslt-dev\
     librdkafka-dev \
+# Upgrade to latest OS libs
+&& apk update \
+&& apk upgrade \
 # Install Robot Framework and Selenium Library
 && pip3 install \
     --no-cache-dir \
