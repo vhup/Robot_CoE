@@ -16,6 +16,10 @@ ENV ATLASSIAN_PYTHON_API_VERSION 3.14.1
 
 USER root
 
+RUN echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
+RUN echo "@edgecommunity http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories  
+RUN apk add --no-cache alpine-sdk 'librdkafka@edgecommunity>=1.8.2' 'librdkafka-dev@edgecommunity>=1.8.2'
+
 RUN apk --no-cache upgrade \
 && apk --no-cache --virtual .build-deps add \
     gcc \
