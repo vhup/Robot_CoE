@@ -43,6 +43,7 @@ RUN apk --no-cache upgrade \
     suds-py3\ \
     requests-pkcs12 \
     influxdb \
+    jwr \
     jira==$JIRA_VERSION \
     requests==$REQUESTS_VERSION \
     atlassian-python-api==$ATLASSIAN_PYTHON_API_VERSION \
