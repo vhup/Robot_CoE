@@ -47,6 +47,7 @@ RUN apk --no-cache upgrade \
     jira==$JIRA_VERSION \
     requests==$REQUESTS_VERSION \
     atlassian-python-api==$ATLASSIAN_PYTHON_API_VERSION \
+    rpaframework
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
