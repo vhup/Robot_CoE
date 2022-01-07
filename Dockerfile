@@ -10,7 +10,7 @@ USER root
 RUN sed -i -e 's/v3\.12/edge/g' /etc/apk/repositories \
 && apk upgrade --no-cache --available \
 && apk --no-cache --virtual .build-deps add \
-    gcc \
+    gcc \ 
     g++\
     curl\
     libxml2-dev\
