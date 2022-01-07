@@ -5,15 +5,6 @@ LABEL description Robot Framework in Docker.
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
 ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
 
-ENV EXCELLIB_VERSION 2.0.0
-ENV PDF2TEXTLIBRARY_VERSION 1.0.1
-ENV SELENIUM2LIBRARY_VERSION 3.0.0
-ENV REQUESTS_VERSION 2.25.1
-ENV REQUESTS_LIBRARY_VERSION 0.8.0
-ENV JIRA_VERSION 3.0.1
-ENV PYPDF2_VERSION 1.26.0
-ENV ATLASSIAN_PYTHON_API_VERSION 3.14.1
-
 USER root
 
 RUN apk --no-cache upgrade \
@@ -27,15 +18,9 @@ RUN apk --no-cache upgrade \
 # Upgrade to latest OS libs
 && apk update \
 && apk upgrade \
-# Install Robot Framework and Selenium Library
 && pip3 install \
     --no-cache-dir \
-    robotframework-excellib==$EXCELLIB_VERSION \
-    robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
-    robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
-    robotframework-archivelibrary \
-    robotframework-requests==$REQUESTS_LIBRARY_VERSION \
-    PyPDF2==$PYPDF2_VERSION \
+    PyPDF2==1.26.0 \
     PyYAML \
     JayDeBeApi \
     lxml\
@@ -44,11 +29,18 @@ RUN apk --no-cache upgrade \
     requests-pkcs12 \
     influxdb \
     jwt \
-    jira==$JIRA_VERSION \
-    requests==$REQUESTS_VERSION \
-    atlassian-python-api==$ATLASSIAN_PYTHON_API_VERSION \
+    jira==3.0.1 \
+    requests==2.25.1 \
+    confluent-kafka==1.7.0 \
+    atlassian-python-api==3.14.1 \
+    robotframework-excellib==2.0.0 \
+    robotframework-selenium2library==3.0.0 \
+    robotframework-pdf2textlibrary==1.0.1 \
+    robotframework-archivelibrary \
+    robotframework-requests==0.8.0 \
     robotframework-jsonlibrary==0.3.1 \
     robotframework-httplibrary==0.4.2 \
+    robotframework-confluentkafkalibrary==1.7.0.post1 \
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
