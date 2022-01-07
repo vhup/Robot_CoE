@@ -7,7 +7,8 @@ ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
 
 USER root
 
-RUN apk --no-cache upgrade \
+RUN sed -i -e 's/v3\.12/edge/g' /etc/apk/repositories \
+&& apk upgrade --update-cache --available \
 && apk --no-cache --virtual .build-deps add \
     gcc \
     g++\
