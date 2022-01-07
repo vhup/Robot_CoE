@@ -8,7 +8,7 @@ ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
 USER root
 
 RUN sed -i -e 's/v3\.12/edge/g' /etc/apk/repositories \
-&& apk upgrade --update-cache --available \
+&& apk upgrade --no-cache --available \
 && apk --no-cache --virtual .build-deps add \
     gcc \
     g++\
@@ -17,8 +17,8 @@ RUN sed -i -e 's/v3\.12/edge/g' /etc/apk/repositories \
     libxslt-dev\
     librdkafka-dev \
 # Upgrade to latest OS libs
-&& apk update \
-&& apk upgrade \
+#&& apk update \
+#&& apk upgrade \
 && pip3 install \
     --no-cache-dir \
     PyPDF2==1.26.0 \
