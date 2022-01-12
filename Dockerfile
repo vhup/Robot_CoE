@@ -1,49 +1,63 @@
-FROM christophettat/robot-framework-base:latest
+FROM ppodgorsek/robot-framework:latest 
 
-LABEL DevOps CoE Robot Framework in Docker.
+LABEL description Robot Framework in Docker.
+
+ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
+ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
+
+ENV EXCELLIB_VERSION 2.0.0
+ENV PDF2TEXTLIBRARY_VERSION 1.0.1
+ENV SELENIUM2LIBRARY_VERSION 3.0.0
+ENV REQUESTS_VERSION 2.25.1
+ENV REQUESTS_LIBRARY_VERSION 0.8.0
+ENV JIRA_VERSION 3.0.1
+ENV PYPDF2_VERSION 1.26.0
+ENV ATLASSIAN_PYTHON_API_VERSION 3.14.1
 
 USER root
-# Install system dependencies
-RUN apk  --no-cache --virtual .build-deps add \
-    # Install dependencies for cryptography due to https://github.com/pyca/cryptography/issues/5771
-    # cargo \
-    # rust \
-    # Continue with system dependencies
+
+# install kafka version required by robot kafkalib
+RUN apk add librdkafka librdkafka-dev --repository=http://dl-cdn.alpinelinux.org/alpine/v3.14/community 
+
+RUN apk --no-cache upgrade \
+&& apk --no-cache --virtual .build-deps add \
     gcc \
-    g++ \
-    libffi-dev \
-    linux-headers \
-    make \
-    musl-dev \
-    openssl-dev \
-    which \
-    wget \
-# Additional packages for DevOps CoE
-     librdkafka\
-     librdkafka-dev\
-     libxslt-dev\
-     libxml2 \
- && pip3 install \
+    g++\
+    curl\
+    libxml2-dev\
+    libxslt-dev\
+    librdkafka-dev \
+# Upgrade to latest OS libs
+&& apk update \
+&& apk upgrade \
+# Install Robot Framework and Selenium Library
+&& pip3 install \
     --no-cache-dir \
-    PyPDF2==1.26.0 \
+    robotframework-excellib==$EXCELLIB_VERSION \
+    robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
+    robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
+    robotframework-archivelibrary \
+    robotframework-requests==$REQUESTS_LIBRARY_VERSION \
+    PyPDF2==$PYPDF2_VERSION \
     PyYAML \
     JayDeBeApi \
     lxml\
     xlrd\
-    suds-py3\ 
+    suds-py3\ \
     requests-pkcs12 \
     influxdb \
     jwt \
-    jira==3.0.1 \
-    requests==2.25.1 \
-    confluent-kafka==1.7.0 \
-    atlassian-python-api==3.14.1 \
-    robotframework-excellib==2.0.0 \
-    robotframework-selenium2library==3.0.0 \
-    robotframework-pdf2textlibrary==1.0.1 \
-    robotframework-archivelibrary \
+    jira==$JIRA_VERSION \
+    requests==$REQUESTS_VERSION \
+    atlassian-python-api==$ATLASSIAN_PYTHON_API_VERSION \
     robotframework-jsonlibrary==0.3.1 \
     robotframework-httplibrary==0.4.2 \
     robotframework-confluentkafkalibrary==1.7.0.post1 \
- #Clean up buildtime dependencies
-  && apk del --no-cache --update-cache .build-deps
+&& apk del --no-cache --update-cache .build-deps
+
+RUN set -x && apk add --no-cache openjdk8
+#COPY ./ojdbc8.jar /lib/ojdbc8.jar
+#COPY ./ojdbc6.jar /lib/ojdbc6.jar
+
+# Execute all robot tests
+CMD ["run-tests-in-virtual-screen.sh"]
