@@ -19,45 +19,5 @@ USER root
 # install kafka version required by robot kafkalib
 RUN apk add librdkafka librdkafka-dev --repository=http://dl-cdn.alpinelinux.org/alpine/v3.14/community 
 
-RUN apk --no-cache upgrade \
-&& apk --no-cache --virtual .build-deps add \
-    gcc \
-    g++\
-    curl\
-    libxml2-dev\
-    libxslt-dev\
-    librdkafka-dev \
-# Upgrade to latest OS libs
-&& apk update \
-&& apk upgrade \
-# Install Robot Framework and Selenium Library
-&& pip3 install \
-    --no-cache-dir \
-    robotframework-excellib==$EXCELLIB_VERSION \
-    robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
-    robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
-    robotframework-archivelibrary \
-    robotframework-requests==$REQUESTS_LIBRARY_VERSION \
-    PyPDF2==$PYPDF2_VERSION \
-    PyYAML \
-    JayDeBeApi \
-    lxml\
-    xlrd\
-    suds-py3\ \
-    requests-pkcs12 \
-    influxdb \
-    jwt \
-    jira==$JIRA_VERSION \
-    requests==$REQUESTS_VERSION \
-    atlassian-python-api==$ATLASSIAN_PYTHON_API_VERSION \
-    robotframework-jsonlibrary==0.3.1 \
-    robotframework-httplibrary==0.4.2 \
-    robotframework-confluentkafkalibrary==1.7.0.post1 \
-&& apk del --no-cache --update-cache .build-deps
-
-RUN set -x && apk add --no-cache openjdk8
-#COPY ./ojdbc8.jar /lib/ojdbc8.jar
-#COPY ./ojdbc6.jar /lib/ojdbc6.jar
-
 # Execute all robot tests
 CMD ["run-tests-in-virtual-screen.sh"]
