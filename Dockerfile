@@ -27,12 +27,14 @@ RUN apk --no-cache upgrade \
     libxml2-dev\
     libxslt-dev\
     librdkafka-dev \
+    libffi-dev \
 # Upgrade to latest OS libs
 && apk update \
 && apk upgrade \
 # Install Robot Framework and Selenium Library
 && pip3 install \
     --no-cache-dir \
+    pyOpenSSL==21.0.0 \    
     robotframework-excellib==$EXCELLIB_VERSION \
     robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
