@@ -56,6 +56,7 @@ RUN apk --no-cache upgrade \
     robotframework-httplibrary==0.4.2 \
     robotframework-confluentkafkalibrary==1.7.0.post1 \
     robotremoteserver \
+    redis==4.1.4 \
 && apk del --no-cache --update-cache .build-deps
 
 RUN set -x && apk add --no-cache openjdk8
