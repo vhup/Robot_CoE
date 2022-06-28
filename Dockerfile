@@ -28,7 +28,7 @@ RUN dnf makecache -y --refresh \
     libxml2-devel\
     libxslt-devel\
     python3-devel\
-#    librdkafka-devel \
+    librdkafka-devel \
     libffi-devel \
     java-1.8.0-openjdk\
 # Install Robot Framework and Selenium Library
