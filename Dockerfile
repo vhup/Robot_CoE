@@ -17,21 +17,22 @@ ENV ATLASSIAN_PYTHON_API_VERSION 3.14.1
 USER root
 
 # install kafka version required by robot kafkalib
-RUN apk add librdkafka librdkafka-dev --repository=http://dl-cdn.alpinelinux.org/alpine/v3.14/community 
+#RUN dnf install -y librdkafka librdkafka-devel python-confluent-kafka
 
-RUN apk --no-cache upgrade \
-&& apk --no-cache --virtual .build-deps add \
+RUN dnf makecache -y --refresh \
+&& dnf install -y \
     gcc \ 
     g++\
     curl\
-    libxml2-dev\
-    libxslt-dev\
-    librdkafka-dev \
-    libffi-dev \
-# Upgrade to latest OS libs
-&& apk update \
-&& apk upgrade \
+    python-confluent-kafka\
+    libxml2-devel\
+    libxslt-devel\
+    python3-devel\
+#    librdkafka-devel \
+    libffi-devel \
+    java-1.8.0-openjdk\
 # Install Robot Framework and Selenium Library
+&& dnf clean all \
 && pip3 install \
     --no-cache-dir \
     pyOpenSSL==21.0.0 \    
@@ -45,7 +46,7 @@ RUN apk --no-cache upgrade \
     JayDeBeApi \
     lxml\
     xlrd\
-    suds-py3\ \
+    suds-py3\ 
     requests-pkcs12 \
     influxdb \
     jwt \
@@ -56,10 +57,7 @@ RUN apk --no-cache upgrade \
     robotframework-httplibrary==0.4.2 \
     robotframework-confluentkafkalibrary==1.7.0.post1 \
     robotremoteserver \
-    redis==4.1.4 \
-&& apk del --no-cache --update-cache .build-deps
-
-RUN set -x && apk add --no-cache openjdk8
+    redis==4.1.4 
 #COPY ./ojdbc8.jar /lib/ojdbc8.jar
 #COPY ./ojdbc6.jar /lib/ojdbc6.jar
 
