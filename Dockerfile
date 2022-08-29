@@ -13,6 +13,7 @@ ENV REQUESTS_LIBRARY_VERSION 0.8.0
 ENV JIRA_VERSION 3.0.1
 ENV PYPDF2_VERSION 1.26.0
 ENV ATLASSIAN_PYTHON_API_VERSION 3.14.1
+ENV PABOT_VERSION 2.6.0
 
 USER root
 
@@ -57,7 +58,11 @@ RUN dnf makecache -y --refresh \
     robotframework-httplibrary==0.4.2 \
     robotframework-confluentkafkalibrary==1.7.0.post1 \
     robotremoteserver \
-    redis==4.1.4 
+    redis==4.1.4 \
+&& pip3 install -I \
+    --no-cache-dir \
+    robotframework-pabot==$PABOT_VERSION
+    
 #COPY ./ojdbc8.jar /lib/ojdbc8.jar
 #COPY ./ojdbc6.jar /lib/ojdbc6.jar
 
