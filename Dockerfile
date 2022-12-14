@@ -66,5 +66,9 @@ RUN dnf makecache -y --refresh \
 #COPY ./ojdbc8.jar /lib/ojdbc8.jar
 #COPY ./ojdbc6.jar /lib/ojdbc6.jar
 
+# patching with latest remoteserver that supports python 3.10+
+ADD https://raw.githubusercontent.com/robotframework/PythonRemoteServer/master/src/robotremoteserver.py /usr/local/lib/python3.10/site-packages/pabot/
+ADD https://raw.githubusercontent.com/robotframework/PythonRemoteServer/master/src/robotremoteserver.py /usr/local/lib/python3.10/site-packages/
+
 # Execute all robot tests
 CMD ["run-tests-in-virtual-screen.sh"]
