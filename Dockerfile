@@ -70,5 +70,9 @@ RUN dnf makecache -y --refresh \
 ADD https://raw.githubusercontent.com/robotframework/PythonRemoteServer/master/src/robotremoteserver.py /usr/local/lib/python3.10/site-packages/pabot/
 ADD https://raw.githubusercontent.com/robotframework/PythonRemoteServer/master/src/robotremoteserver.py /usr/local/lib/python3.10/site-packages/
 
+RUN chmod 644 /usr/local/lib/python3.10/site-packages/pabot/robotremoteserver.py
+RUN chmod 644 /usr/local/lib/python3.10/site-packages/robotremoteserver.py
+
+
 # Execute all robot tests
 CMD ["run-tests-in-virtual-screen.sh"]
