@@ -20,7 +20,7 @@ USER root
 # install kafka version required by robot kafkalib
 #RUN dnf install -y librdkafka librdkafka-devel python-confluent-kafka
 
-RUN dnf makecache -y --refresh \
+RUN dnf makecache -y \
 && dnf install -y \
     gcc \ 
     g++\
