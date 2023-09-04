@@ -59,6 +59,8 @@ RUN dnf makecache -y --refresh \
     robotframework-confluentkafkalibrary==1.7.0.post1 \
     robotremoteserver \
     redis==4.1.4 \
+    robotframework-crypto \
+    pyotp \
 && pip3 install -I \
     --no-cache-dir \
     robotframework-pabot==$PABOT_VERSION
