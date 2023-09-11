@@ -14,7 +14,7 @@ ENV JIRA_VERSION 3.0.1
 ENV PYPDF2_VERSION 1.26.0
 ENV ATLASSIAN_PYTHON_API_VERSION 3.14.1
 ENV PABOT_VERSION 2.6.0
-
+ENV SELENIUMLIBRARY_VERSION 6.1.2  
 USER root
 
 # install kafka version required by robot kafkalib
@@ -36,7 +36,8 @@ RUN dnf makecache -y --refresh \
 && dnf clean all \
 && pip3 install \
     --no-cache-dir \
-    pyOpenSSL==21.0.0 \    
+    pyOpenSSL==21.0.0 \
+    robotframework-seleniumlibrary==$SELENIUMLIBRARY_VERSION \
     robotframework-excellib==$EXCELLIB_VERSION \
     robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
