@@ -61,6 +61,7 @@ RUN dnf makecache -y --refresh \
     robotremoteserver \
     redis==4.1.4 \
     robotframework-crypto \
+    cx-Oracle \
     pyotp \
 && pip3 install -I \
     --no-cache-dir \
