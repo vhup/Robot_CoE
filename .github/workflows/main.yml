@@ -3,9 +3,9 @@
 name: Docker Image CI
 
 on:
-  workflow_dispatch:
+  push:
     tags:
-      - 'v*.*.*-*'  
+      - 'v*.*.*-*'
 
 jobs:
 
