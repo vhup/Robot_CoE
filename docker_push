@@ -1,4 +1,4 @@
-Is this file really used ????
+Is this file really used ???? Let's see if it cause an error with that...
 
 #!/bin/bash
 #echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
