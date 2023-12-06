@@ -2,10 +2,10 @@
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 if [ "$TRAVIS_TAG" != "" ]
 then 
-    docker tag devops_coe_robot:ci christophettat/devops_coe_robot:"$TRAVIS_TAG"
-    docker push christophettat/devops_coe_robot:"$TRAVIS_TAG"
+    docker tag devops_coe_robot_pt:ci vhupet/devops_coe_robot_pt:"$TRAVIS_TAG"
+    docker push vhupet/devops_coe_robot_pt:"$TRAVIS_TAG"
 fi
-    docker tag devops_coe_robot:ci christophettat/devops_coe_robot:latest
-    docker tag christophettat/devops_coe_robot:latest christophettat/devops_coe_robot:"$TRAVIS_JOB_ID"
-    docker push christophettat/devops_coe_robot:latest 
-    docker push christophettat/devops_coe_robot:"$TRAVIS_JOB_ID"
+    docker tag devops_coe_robot_pt:ci vhupet/devops_coe_robot_pt:latest
+    docker tag vhupet/devops_coe_robot_pt:latest vhupet/devops_coe_robot_pt:"$TRAVIS_JOB_ID"
+    docker push vhupet/devops_coe_robot_pt:latest 
+    docker push vhupet/devops_coe_robot_pt:"$TRAVIS_JOB_ID"
