@@ -64,6 +64,8 @@ RUN dnf makecache -y \
     cx-Oracle \
     pyotp \
     torch==1.13.1 \
+    numpy==1.25.2 \
+    scikit-learn==1.3.2 \
 && pip3 install -I \
     --no-cache-dir \
     robotframework-pabot==$PABOT_VERSION
