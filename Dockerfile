@@ -61,6 +61,7 @@ RUN dnf makecache -y \
     robotremoteserver \
     redis==4.1.4 \
     robotframework-crypto \
+    jsonpath_ng \
     cx-Oracle \
     pyotp \
     torch==1.13.1 \
