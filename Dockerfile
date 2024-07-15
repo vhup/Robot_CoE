@@ -64,7 +64,7 @@ RUN dnf makecache -y \
     jsonpath_ng \
     cx-Oracle \
     pyotp \
-    torch==1.13.1 \
+    torch==2.3.1 \
     numpy==1.25.2 \
     scikit-learn==1.3.2 \
 && pip3 install -I \
