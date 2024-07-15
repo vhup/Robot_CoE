@@ -65,7 +65,7 @@ RUN dnf makecache -y \
     cx-Oracle \
     pyotp \
     torch==2.3.1 \
-    numpy==1.25.2 \
+    numpy==1.26.4 \
     scikit-learn==1.3.2 \
 && pip3 install -I \
     --no-cache-dir \
