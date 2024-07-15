@@ -1,4 +1,4 @@
-FROM ppodgorsek/robot-framework:6.1.0 
+FROM ppodgorsek/robot-framework:latest 
 
 LABEL description Robot Framework in Docker.
 
@@ -64,8 +64,8 @@ RUN dnf makecache -y \
     jsonpath_ng \
     cx-Oracle \
     pyotp \
-    torch==2.3.1 \
-    numpy==1.26.4 \
+    torch \
+    numpy \
     scikit-learn==1.3.2 \
 && pip3 install -I \
     --no-cache-dir \
