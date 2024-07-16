@@ -21,7 +21,7 @@ USER root
 #RUN dnf install -y librdkafka librdkafka-devel python-confluent-kafka
 
 RUN dnf makecache -y \
-&& dnf install -y --setopt=protected_packages=, \
+&& dnf install -y --exclude=python3 --setopt=protected_packages=, \
     gcc \ 
     g++\
     curl\
