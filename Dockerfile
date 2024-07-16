@@ -21,14 +21,14 @@ USER root
 #RUN dnf install -y librdkafka librdkafka-devel python-confluent-kafka
 
 RUN dnf makecache -y \
-&& dnf install -y --exclude=python3 --setopt=protected_packages=, \
+&& dnf install -y --setopt=protected_packages=, \
     gcc \ 
     g++\
     curl\
     python-confluent-kafka\
     libxml2-devel\
     libxslt-devel\
-    python3-devel\
+    python3-devel-x86_64 3.11.4-1.fc39\
     librdkafka-devel \
     libffi-devel \
     java-1.8.0-openjdk\
