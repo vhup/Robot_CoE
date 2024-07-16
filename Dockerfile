@@ -1,4 +1,4 @@
-FROM ppodgorsek/robot-framework:6.1.0
+FROM ppodgorsek/robot-framework:latest
 
 LABEL description Robot Framework in Docker.
 
@@ -28,7 +28,7 @@ RUN dnf makecache -y \
     python-confluent-kafka\
     libxml2-devel\
     libxslt-devel\
-    python3-devel-3.11.4-1.fc39.x86_64\
+    python3-devel\
     librdkafka-devel \
     libffi-devel \
     java-1.8.0-openjdk\
