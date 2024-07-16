@@ -28,7 +28,7 @@ RUN dnf makecache -y \
     python-confluent-kafka\
     libxml2-devel\
     libxslt-devel\
-    python3-devel-x86_64 3.11.4-1.fc39\
+    python3-devel-3.11.4-1.fc39.x86_64\
     librdkafka-devel \
     libffi-devel \
     java-1.8.0-openjdk\
