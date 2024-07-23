@@ -62,6 +62,7 @@ RUN dnf makecache -y \
     redis==4.1.4 \
     robotframework-crypto \
     jsonpath_ng \
+    flask \
     cx-Oracle \
     pyotp \
     torch \
