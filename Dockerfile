@@ -67,7 +67,7 @@ RUN dnf makecache -y \
     pyotp \
     torch \
     numpy \
-    scikit-learn==1.3.2 \
+    scikit-learn==1.5.2 \
     robotframework-csvlib==1.0.0 \
     robotframework-keepasslibrary==0.7.0.post1 \
     simplejson==3.19.3 \
