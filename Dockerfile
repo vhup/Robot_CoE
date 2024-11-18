@@ -22,7 +22,7 @@ USER root
 # install kafka version required by robot kafkalib
 #RUN dnf install -y librdkafka librdkafka-devel python-confluent-kafka
 
-RUN alias python="python3" && dnf makecache -y \
+RUN dnf makecache -y \
 && dnf install -y --setopt=protected_packages=, \
     gcc \ 
     g++\
@@ -30,7 +30,7 @@ RUN alias python="python3" && dnf makecache -y \
     python-confluent-kafka\
     libxml2-devel\
     libxslt-devel\
-    python3-devel\
+    python3.9-devel\
     librdkafka-devel \
     libffi-devel \
     java-21-openjdk \
