@@ -67,8 +67,9 @@ RUN dnf makecache -y \
     flask \
     cx-Oracle \
     pyotp \
-    torch \
-    numpy \
+    torch==2.3.1 \
+    numpy==1.26.4 \
+    pandas==2.1.0 \
     scikit-learn==1.5.2 \
     robotframework-csvlib==1.0.0 \
     robotframework-keepasslibrary==0.7.0.post1 \
