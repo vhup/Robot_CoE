@@ -2,7 +2,7 @@ FROM ppodgorsek/robot-framework:6.1.0
 
 LABEL description Robot Framework in Docker.
 
-ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk
 ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
 
 ENV EXCELLIB_VERSION 2.0.0
@@ -31,7 +31,7 @@ RUN dnf makecache -y \
     python3-devel\
     librdkafka-devel \
     libffi-devel \
-    java-1.8.0-openjdk\
+    java-11-openjdk\
 # Install Robot Framework and Selenium Library
 && dnf clean all \
 && pip3 install \
