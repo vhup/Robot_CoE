@@ -67,7 +67,7 @@ RUN dnf makecache -y \
     flask \
     cx-Oracle \
     pyotp \
-    torch==2.3.1 \
+    torch==2.5.1 \
     numpy==1.26.4 \
     pandas==2.1.0 \
     scikit-learn==1.5.2 \
