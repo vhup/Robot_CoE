@@ -69,7 +69,7 @@ RUN dnf makecache -y \
     pyotp \
     torch==2.5.1 \
     numpy==1.26.4 \
-    pandas==2.1.0 \
+    pandas==2.2.3 \
     scikit-learn==1.5.2 \
     robotframework-csvlib==1.0.0 \
     robotframework-keepasslibrary==0.7.0.post1 \
