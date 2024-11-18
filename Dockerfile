@@ -30,7 +30,7 @@ RUN dnf makecache -y \
     python-confluent-kafka\
     libxml2-devel\
     libxslt-devel\
-    python3.9-devel\
+    python3.13-devel\
     librdkafka-devel \
     libffi-devel \
     java-21-openjdk \
