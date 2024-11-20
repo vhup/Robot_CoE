@@ -1,4 +1,4 @@
-VFROM ppodgorsek/robot-framework:6.1.0
+FROM ppodgorsek/robot-framework:6.1.0
 
 LABEL description Robot Framework in Docker.
 
