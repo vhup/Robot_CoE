@@ -76,9 +76,11 @@ RUN dnf makecache -y \
     robotframework-csvlib==1.0.0 \
     robotframework-keepasslibrary==0.7.0.post1 \
     simplejson==3.19.3 \
-&& pip3 install -I \
-    --no-cache-dir \
-    robotframework-pabot==$PABOT_VERSION
+    robotframework-pabot==$PABOT_VERSION \    
+# Commented because moved pabot to same s above command
+#&& pip3 install -I \
+#    --no-cache-dir \
+#    robotframework-pabot==$PABOT_VERSION
     
 #COPY ./ojdbc8.jar /lib/ojdbc8.jar
 #COPY ./ojdbc6.jar /lib/ojdbc6.jar
