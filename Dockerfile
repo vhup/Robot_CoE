@@ -39,7 +39,8 @@ RUN dnf makecache -y \
 && pip3 install \
     --no-cache-dir \
     pyOpenSSL==21.0.0 \
-    robotframework==6.1.0
+# rf can be removed if we are ok to use 7... but without that the 6.1.0 from the original contaier is upgraded
+    robotframework==6.1.0 \
     robotframework-seleniumlibrary==$SELENIUMLIBRARY_VERSION \
     robotframework-excellib==$EXCELLIB_VERSION \
     robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
