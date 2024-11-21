@@ -77,7 +77,7 @@ RUN dnf makecache -y \
     robotframework-keepasslibrary==0.7.0.post1 \
     simplejson==3.19.3 \
 && pip3 install -I \
-    --no-cache-dir --no-deps \
+    --no-cache-dir \
     robotframework==$ROBOT_VERSION \
     robotframework-pabot==$PABOT_VERSION
     
