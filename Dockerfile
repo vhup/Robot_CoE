@@ -47,6 +47,7 @@ RUN dnf makecache -y \
     robotframework-pdf2textlibrary==$PDF2TEXTLIBRARY_VERSION \
     robotframework-archivelibrary \
     robotframework-requests==$REQUESTS_LIBRARY_VERSION \
+    robotframework-sshlibrary==3.8.0 \
     PyPDF2==$PYPDF2_VERSION \
     PyYAML \
     JayDeBeApi \
