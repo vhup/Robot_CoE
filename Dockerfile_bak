@@ -1,10 +1,13 @@
-FROM ppodgorsek/robot-framework:6.1.0
+FROM ppodgorsek/robot-framework:latest
 
 LABEL description Robot Framework in Docker.
 
-ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
-ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
+# If the lines below are not needed anymore, then I'm not sure that hte JAVA_HOME is used somewhere...
+#ENV JAVA_HOME /usr/lib/jvm/jre-21-openjdk
+# Those files seems to not be present anymore in Java 21...
+#ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
 
+ENV ROBOT_VERSION 7.1.1
 ENV EXCELLIB_VERSION 2.0.0
 ENV PDF2TEXTLIBRARY_VERSION 1.0.1
 ENV SELENIUM2LIBRARY_VERSION 3.0.0
@@ -28,15 +31,16 @@ RUN dnf makecache -y \
     python-confluent-kafka\
     libxml2-devel\
     libxslt-devel\
-    python3-devel\
+    python3.13-devel\
     librdkafka-devel \
     libffi-devel \
-    java-1.8.0-openjdk\
+    java-21-openjdk \
 # Install Robot Framework and Selenium Library
 && dnf clean all \
 && pip3 install \
     --no-cache-dir \
     pyOpenSSL==21.0.0 \
+    #robotframework==$ROBOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUMLIBRARY_VERSION \
     robotframework-excellib==$EXCELLIB_VERSION \
     robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
@@ -65,15 +69,16 @@ RUN dnf makecache -y \
     flask \
     cx-Oracle \
     pyotp \
-    torch \
-    numpy \
-    scikit-learn==1.3.2 \
+    torch==2.5.1 \
+    numpy==1.26.4 \
+    pandas==2.2.3 \
+    scikit-learn==1.5.2 \
     robotframework-csvlib==1.0.0 \
     robotframework-keepasslibrary==0.7.0.post1 \
     simplejson==3.19.3 \
 && pip3 install -I \
-    --no-cache-dir \
-    robotframework-pabot==$PABOT_VERSION
+    --no-cache-dir --no-deps \
+    robotframework-pabot==$PABOT_VERSION \
     
 #COPY ./ojdbc8.jar /lib/ojdbc8.jar
 #COPY ./ojdbc6.jar /lib/ojdbc6.jar
