@@ -1,4 +1,4 @@
-FROM ppodgorsek/robot-framework:6.1.0
+FROM ppodgorsek/robot-framework:latest
 
 LABEL description Robot Framework in Docker.
 
@@ -7,7 +7,7 @@ LABEL description Robot Framework in Docker.
 # Those files seems to not be present anymore in Java 21...
 #ENV LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64:$JAVA_HOME/jre/lib/amd64/server
 
-ENV ROBOT_VERSION 6.1.0
+ENV ROBOT_VERSION 7.1.1
 ENV EXCELLIB_VERSION 2.0.0
 ENV PDF2TEXTLIBRARY_VERSION 1.0.1
 ENV SELENIUM2LIBRARY_VERSION 3.0.0
@@ -40,8 +40,7 @@ RUN dnf makecache -y \
 && pip3 install \
     --no-cache-dir \
     pyOpenSSL==21.0.0 \
-# rf can be removed if we are ok to use 7... but without that the 6.1.0 from the original contaier is upgraded
-    robotframework==$ROBOT_VERSION \
+    #robotframework==$ROBOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUMLIBRARY_VERSION \
     robotframework-excellib==$EXCELLIB_VERSION \
     robotframework-selenium2library==$SELENIUM2LIBRARY_VERSION \
@@ -79,7 +78,6 @@ RUN dnf makecache -y \
     simplejson==3.19.3 \
 && pip3 install -I \
     --no-cache-dir --no-deps \
-    robotframework==$ROBOT_VERSION \
     robotframework-pabot==$PABOT_VERSION \
     
 #COPY ./ojdbc8.jar /lib/ojdbc8.jar
